@@ -2,9 +2,9 @@
 const Sequelize = require('sequelize');
 require("dotenv").config();
 
-let database = 'robogarden_app';
-let username = 'root';
-let password = '';
+let database = process.env.DATABASE;
+let username = process.env.DB_USERNAME;
+let password = process.env.PASSWORD;
 
 const config = new Sequelize(database, username, password, {dialect: 'mariadb'});
 
