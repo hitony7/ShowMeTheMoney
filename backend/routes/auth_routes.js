@@ -7,8 +7,8 @@ const jwt = require('jsonwebtoken');
 router.post('/register', function(req, res){
     const userData = req.body;
 
-    bcrypt.hash(userData.password, 10, (err, hash) => {
-        userData.password = hash; //replace the clear text password with the hashed password.
+    bcrypt.hash(userData.hashed_password, 10, (err, hash) => {
+        userData.hashed_password = hash; //replace the clear text password with the hashed password.
 
         //Save user data to database.
         User.create(userData).then((result) => {
@@ -31,12 +31,13 @@ router.post('/login', function(req, res){
         }
 
         //Compare password
-        bcrypt.compare(password, result.password, (err, match) => {
+        bcrypt.compare(password, result.hashed_password, (err, match) => {
             if (!match) {
                 return res.status(401).send('Authentication failed');
             }
-
-            const token = jwt.sign({ userId: result.id }, '123456', {expiresIn: '1h'}); //Generate authentication token
+            console.log(result.user_id);
+        
+            const token = jwt.sign({ user_id: result.user_id }, '123456', {expiresIn: '1h'}); //Generate authentication token
             res.status(200).send({token});
         });        
     });
