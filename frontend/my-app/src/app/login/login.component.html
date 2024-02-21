@@ -1,13 +1,17 @@
-<section class="listing-apply">
+<section class="login-box">
   <h2 class="section-heading">Login</h2>
-  <!-- []data bind () event bind -->
+    <!-- []data bind () event bind -->
   <form [formGroup]="loginForm" (submit)="submitApplication()">
-    <label for="email">Email</label>
-    <input id="email" type="text" formControlName="email">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="text" formControlName="email">
+    </div>
 
-    <label for="password">Password</label>
-    <input id="password" type="text" formControlName="password">
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password">
+    </div>
 
-    <button type="submit" class="primary">Apply now</button>
+    <button type="submit" class="btn btn-primary">Login</button>
   </form>
 </section>
