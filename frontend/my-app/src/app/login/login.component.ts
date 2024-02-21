@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 
 @Component({
@@ -13,37 +14,27 @@ import { catchError } from 'rxjs/operators';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-    //reactive fourm
-    loginForm = new FormGroup({
-      email: new FormControl(''),
-      password: new FormControl(''),
-    });
-  
-    constructor(private http: HttpClient) {
+  loginForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
 
-    }
+  constructor(private authService: AuthService) {} // Inject AuthService
 
-    submitApplication() {
-      const obj = this.loginForm.value;
-      console.log(obj);
+  submitApplication() {
+    const obj = this.loginForm.value;
+    console.log(obj);
     
-      this.http.post<any>('http://localhost:3000/auth/login', obj)
-        .pipe(
-          catchError(error => {
-            // Handle errors here
-            console.error('An error occurred:', error);
-            // Re-throw the error to propagate it further
-            throw error;
-          })
-        )
-        .subscribe({
-          next: response => {
-            // Handle the response here
-            console.log(response);
-          }
-        });
-    }
-
+    this.authService.login(obj)
+      .subscribe({
+        next: response => {
+          console.log('Login successful!');
+          // Assuming your JWT token is returned as 'token' in the response
+          const jwtToken = response.token;
+          // Now you can store the JWT token in local storage or a cookie (in this case local)
+          localStorage.setItem('jwtToken', jwtToken);
+          // Then, redirect the user Main page
+        }
+      });
   }
-
-
+}
