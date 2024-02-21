@@ -1,34 +1,61 @@
 {
-  "hash": "afc4cb27",
-  "configHash": "24a1b061",
+  "hash": "c89efbc2",
+  "configHash": "810f106c",
   "lockfileHash": "d4947f32",
-  "browserHash": "739c4410",
+  "browserHash": "b157f923",
   "optimized": {
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "10662567",
+      "fileHash": "2639c80d",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "dfb9d4f7",
+      "fileHash": "24a24618",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "fff43d21",
+      "fileHash": "ae0a71a1",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "5023eb6c",
+      "needsInterop": false
+    },
+    "@angular/common/http": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "136749d9",
+      "needsInterop": false
+    },
+    "rxjs/operators": {
+      "src": "../../../../../node_modules/rxjs/dist/esm5/operators/index.js",
+      "file": "rxjs_operators.js",
+      "fileHash": "ed545eba",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-PLTXHCJV": {
-      "file": "chunk-PLTXHCJV.js"
+    "chunk-OBEE7ATX": {
+      "file": "chunk-OBEE7ATX.js"
     },
-    "chunk-4TZND4QJ": {
-      "file": "chunk-4TZND4QJ.js"
+    "chunk-SL4ANZ3X": {
+      "file": "chunk-SL4ANZ3X.js"
+    },
+    "chunk-4PK3TNGN": {
+      "file": "chunk-4PK3TNGN.js"
+    },
+    "chunk-MENHDYRZ": {
+      "file": "chunk-MENHDYRZ.js"
+    },
+    "chunk-ZKK523BS": {
+      "file": "chunk-ZKK523BS.js"
     }
   }
 }

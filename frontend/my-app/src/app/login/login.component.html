@@ -1,1 +1,13 @@
-<p>login works!</p>
+<section class="listing-apply">
+  <h2 class="section-heading">Apply now to live here</h2>
+  <!-- []data bind () event bind -->
+  <form [formGroup]="loginForm" (submit)="submitApplication()">
+    <label for="email">Email</label>
+    <input id="email" type="text" formControlName="email">
+
+    <label for="password">Password</label>
+    <input id="password" type="text" formControlName="password">
+
+    <button type="submit" class="primary">Apply now</button>
+  </form>
+</section>
