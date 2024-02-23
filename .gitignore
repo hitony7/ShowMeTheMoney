@@ -46,3 +46,5 @@ Thumbs.db
 
 # Except for .env.example
 !.env.example
+#cache folder
+.angular*/
