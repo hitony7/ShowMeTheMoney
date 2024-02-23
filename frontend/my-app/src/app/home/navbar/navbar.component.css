@@ -1,0 +1,17 @@
+.navbar{
+    justify-content: space-between;
+}
+
+span{
+    padding-right:  1rem;
+}
+
+a {
+    color: white; /* Default color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+  
+a:hover {
+    color: rgb(143, 143, 241); /* Color on hover */
+}
