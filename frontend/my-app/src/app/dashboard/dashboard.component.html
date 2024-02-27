@@ -1,1 +1,7 @@
 <p>dashboard works!</p>
+<div *ngIf="userProfile">
+    <h1>Welcome, {{ userProfile.firstname }} {{ userProfile.lastname }}</h1>
+    <p>Email: {{ userProfile.email }}</p>
+    <p>Date of Birth: {{ userProfile.dob }}</p>
+  </div>
+  
