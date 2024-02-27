@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { RegisterService } from './register.service';
 
 
 @Component({
@@ -17,9 +18,11 @@ import { MatNativeDateModule } from '@angular/material/core';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
+
+  
   registerForm: FormGroup;
   //could use an interface
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder , private registerService: RegisterService) {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
       hashed_password: ['', Validators.required],
@@ -32,12 +35,20 @@ export class RegisterComponent {
 
   onSubmit() {
     if (this.registerForm.valid) {
-      // Form is valid, proceed with registration logic
-      console.log(this.registerForm.value);
-      // You can call your service to send the registration data to the server here
+      this.registerService.registerUser(this.registerForm.value)
+        .subscribe(
+          response => {
+            console.log('Registration successful:', response);
+            // Handle successful registration response here
+          },
+          error => {
+            console.error('Registration failed:', error);
+            // Handle registration error here
+          }
+        );
     } else {
-      // Form is invalid, display error messages
       console.log('Form is invalid');
     }
   }
+
 }
