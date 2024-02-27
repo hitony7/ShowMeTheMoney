@@ -1,0 +1,19 @@
+/* Apply styles to the form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Apply styles to each mat-form-field */
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px; /* Add spacing between form fields */
+  }
+  
+  /* Apply styles to the button */
+  button {
+    width: 100%;
+    margin-top: 20px; /* Add spacing between form fields and button */
+  }
+  
