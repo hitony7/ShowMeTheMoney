@@ -5,6 +5,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
+  text-align: center; /* Center align the content */
 }
 
 .section-heading {
@@ -16,16 +17,13 @@
   margin-bottom: 15px;
 }
 
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
+.mat-form-field {
+  width: calc(100% - 30px); /* Set width to 100% minus padding (30px) */
+  margin: 0 auto; /* Center the mat-form-field */
 }
 
-
-
-button[type="submit"] {
-  width: 100%;
+.btn-primary {
+  width: 100%; /* Set width to 100% */
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -35,26 +33,8 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
+.btn-primary:hover {
   background-color: #0056b3;
-}
-
-
-.example-container mat-form-field + mat-form-field {
-  margin-left: 8px;
-}
-
-.example-right-align {
-  text-align: right;
-}
-
-input.example-right-align::-webkit-outer-spin-button,
-input.example-right-align::-webkit-inner-spin-button {
-  display: none;
-}
-
-input.example-right-align {
-  -moz-appearance: textfield;
 }
 
 .transparent-icon {
@@ -63,5 +43,5 @@ input.example-right-align {
   right: 16px;
   transform: translateY(-50%);
   background: transparent;
-  border: none; /* Remove border */
+  border: none;
 }
