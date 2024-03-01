@@ -1,21 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { UserloadService } from './userload.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
+import { flush } from '@angular/core/testing';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
 @Component({
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule , MatButtonModule, MatSidenavModule, RouterLink],
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
   userProfile: any;
+  showProfileContent: boolean = true;
+  showFiller = false;
 
   constructor(private userloadService: UserloadService) {}
 
   ngOnInit(): void {
     this.loadUserProfile();
+  }
+
+  onToggleSidenav() {
+    this.showProfileContent = !this.showProfileContent;
+  }
+
+  logout(){
+    
   }
 
   loadUserProfile(): void {

@@ -1,7 +1,36 @@
-<p>dashboard works!</p>
-<div *ngIf="userProfile">
-    <h1>Welcome, {{ userProfile.firstname }} {{ userProfile.lastname }}</h1>
-    <p>Email: {{ userProfile.email }}</p>
-    <p>Date of Birth: {{ userProfile.dob }}</p>
+<!-- side-navigation.component.html -->
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+
+    <!-- Add routerLink directive to navigate to different routes -->
+    <button mat-flat-button [routerLink]="['/dashboard']">
+      Dashboard
+    </button>
+    <button mat-flat-button [routerLink]="['/accounts']">
+      Accounts
+    </button>
+    <button mat-flat-button [routerLink]="['/assets-liabilities']">
+      Assets and Liabilities
+    </button>
+    <button mat-flat-button [routerLink]="['/income-expense']">
+      Income and Expense
+    </button>
+    <button mat-flat-button [routerLink]="['/savings-goal']">
+      Savings Goal
+    </button>
+
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle Navigation
+    </button>
+
+
+    <header class="header">
+      <h1>Welcome, {{ userProfile.firstname }} {{ userProfile.lastname }}</h1>
+      <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+    </header>
+
   </div>
-  
+</mat-drawer-container>
