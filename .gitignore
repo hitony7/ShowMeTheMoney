@@ -48,3 +48,5 @@ Thumbs.db
 !.env.example
 #cache folder
 .angular*/
+
+!.angular/config.json
