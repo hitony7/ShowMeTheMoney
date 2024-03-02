@@ -29,9 +29,15 @@ export class DashboardComponent implements OnInit {
     this.showProfileContent = !this.showProfileContent;
   }
 
-  logout(){
+  logout() {
+    // Remove JWT token from local storage
+    localStorage.removeItem('jwtToken');
     
-  }
+    // Redirect to home page
+    window.location.href = './';
+    //maybe add pop up for logout
+}
+
 
   loadUserProfile(): void {
     const token = localStorage.getItem('jwtToken'); // Retrieve JWT token from local storage

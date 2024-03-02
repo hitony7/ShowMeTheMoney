@@ -32,6 +32,15 @@ export class IncomeExpenseComponent implements OnInit {
     
   }
 
+  addincome(){
+    
+  }
+  
+  addexpense(){
+    
+  }
+
+
   loadUserProfile(): void {
     const token = localStorage.getItem('jwtToken'); // Retrieve JWT token from local storage
     if (token) {
