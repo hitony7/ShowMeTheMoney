@@ -32,6 +32,8 @@ const Income = sequelize.define('income', {
     type: DataTypes.STRING,
     defaultValue: null
   }
+}, {
+  timestamps: false // This will tell Sequelize not to include createdAt and updatedAt columns
 });
 
 module.exports = Income;
