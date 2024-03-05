@@ -5,20 +5,37 @@ const Income = require('../models/income');
 // Route to handle POST request to insert a new row of data
 router.post('/newEntry', async (req, res) => {
   try {
-    // Extract data from request body
-    const { user_id, source, amount, date, note } = req.body;
+    let inputData = req.body;
 
-    // Create a new income record
-    const newIncome = await Income.create({
-      user_id,
-      source,
-      amount,
-      date,
-      note
-    });
+    // Check if inputData is an array or a single object
+    if (!Array.isArray(inputData)) {
+      // If it's a single object, convert it to an array
+      inputData = [inputData];
+    }
 
-    // Send a success response with the newly created income record
-    res.status(201).json({ success: true, data: newIncome });
+    // Create an array to store the newly created income records
+    const newIncomes = [];
+
+    // Iterate over each input data
+    for (const data of inputData) {
+      // Extract data from current iteration
+      const { user_id, source, amount, date, note } = data;
+
+      // Create a new income record
+      const newIncome = await Income.create({
+        user_id,
+        source,
+        amount,
+        date,
+        note
+      });
+
+      // Push the newly created income record to the array
+      newIncomes.push(newIncome);
+    }
+
+    // Send a success response with the newly created income records
+    res.status(201).json({ success: true, data: newIncomes });
   } catch (error) {
     // If an error occurs, send an error response
     console.error(error);

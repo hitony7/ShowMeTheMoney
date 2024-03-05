@@ -16,14 +16,20 @@ router.get('/:user_id', async (req, res) => {
 
 // POST a new liability
 router.post('/newEntry', async (req, res) => {
-  try {
-    const { user_id, category, amount, note, date } = req.body;
-    const newLiability = await Liabilities.create({ user_id, category, amount, note, date });
-    res.status(201).json(newLiability);
-  } catch (error) {
-    console.error('Error creating new liability:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
+    try {
+      const data = Array.isArray(req.body) ? req.body : [req.body]; // Check if the request body is an array
+  
+      const newLiabilities = await Promise.all(data.map(async (item) => {
+        const { user_id, category, amount, note, date } = item;
+        return await Liabilities.create({ user_id, category, amount, note, date });
+      }));
+  
+      res.status(201).json(newLiabilities);
+    } catch (error) {
+      console.error('Error creating new liability:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+  
 
 module.exports = router;
