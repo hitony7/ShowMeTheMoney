@@ -7,6 +7,8 @@ const transactionRoutes = require('./routes/transaction_routes');
 const userRoutes = require('./routes/user_routes');
 const incomeRoutes = require('./routes/income_routes');
 const expenseRoutes = require('./routes/expense_routes');
+const assetRoutes = require('./routes/asset_routes');
+const liabilitiesRoutes = require('./routes/liabilities_routes')
 const config = require('./config');
 
 //Global middlewares
@@ -27,6 +29,8 @@ app.use('/transactions', transactionRoutes);
 app.use('/user', userRoutes);
 app.use('/income', incomeRoutes);
 app.use('/expense', expenseRoutes);
+app.use('/asset', assetRoutes);
+app.use('/liability' , liabilitiesRoutes);
 
 const PORT = 3000;
 app.listen(PORT, function(){

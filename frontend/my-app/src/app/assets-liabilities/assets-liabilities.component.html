@@ -28,7 +28,9 @@
   
   
       <header class="header">
-        <h1>Welcome assests, {{ userProfile.firstname }} {{ userProfile.lastname }}</h1>
+        <h1>Welcome assests, {{ userProfile?.firstname }} {{ userProfile?.lastname }}</h1>
+        <button mat-raised-button color="warn" (click)="addAsset()">Add Asset</button>
+        <button mat-raised-button color="warn" (click)="addLiability()">Add Liabilities</button>
         <button mat-raised-button color="warn" (click)="logout()">Logout</button>
       </header>
   

@@ -1,0 +1,25 @@
+<h2>Add Liabilities</h2>
+<form>
+  <mat-form-field>
+    <mat-label>Category</mat-label>
+    <input matInput placeholder="Category" name="category" [(ngModel)]="formData.category">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Amount</mat-label>
+    <input matInput type="number" placeholder="Amount" name="amount" [(ngModel)]="formData.amount">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Date</mat-label>
+    <input matInput type="date" placeholder="Date" name="date" [(ngModel)]="formData.date">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Note</mat-label>
+    <textarea matInput placeholder="Note" name="note" [(ngModel)]="formData.note"></textarea>
+  </mat-form-field>
+
+  <button mat-button (click)="closeDialog()">Cancel</button>
+  <button mat-button color="primary" type="button" (click)="save()">Save</button>
+</form>

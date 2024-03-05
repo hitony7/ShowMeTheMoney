@@ -6,6 +6,9 @@ import { RouterLink } from '@angular/router';
 import { flush } from '@angular/core/testing';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatDialog } from '@angular/material/dialog';
+import { AddLiabilitiesDialogComponent } from './add-liabilities-dialog-component/add-liabilities-dialog.component';
+import { AddAssetDialogComponent } from './add-asset-dialog-component/add-asset-dialog.component';
 
 @Component({
   selector: 'app-assets-liabilities',
@@ -20,7 +23,7 @@ export class AssetsLiabilitiesComponent {
   showProfileContent: boolean = true;
   showFiller = false;
 
-  constructor(private userloadService: UserloadService) {}
+  constructor(private userloadService: UserloadService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.loadUserProfile();
@@ -31,6 +34,22 @@ export class AssetsLiabilitiesComponent {
   }
 
   logout(){
+    
+  }
+
+  addLiability(){
+
+    const dialogRef = this.dialog.open(AddLiabilitiesDialogComponent, {
+      width: '400px' // Adjust the width as needed
+    });
+
+  }
+
+  addAsset(){
+    const dialogRef = this.dialog.open(AddAssetDialogComponent, {
+      width: '400px' // Adjust the width as needed
+    });
+
     
   }
 

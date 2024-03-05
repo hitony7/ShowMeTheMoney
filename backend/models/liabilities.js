@@ -32,6 +32,10 @@ const Liabilities = sequelize.define('liabilities', {
     type: DataTypes.DATE,
     allowNull: false
   }
+  
+}
+, {
+  timestamps: false // This will tell Sequelize not to include createdAt and updatedAt columns
 });
 
 module.exports = Liabilities;
