@@ -45,7 +45,7 @@ router.post('/newEntry', async (req, res) => {
 
 
 // Route to handle GET request to retrieve income records by user ID
-router.get('/income/:user_id', async (req, res) => {
+router.get('/:user_id', async (req, res) => {
   try {
     const { user_id } = req.params;
 
