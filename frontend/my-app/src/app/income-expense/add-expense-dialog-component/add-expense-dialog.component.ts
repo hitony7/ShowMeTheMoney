@@ -15,20 +15,21 @@ import { FormsModule } from '@angular/forms';
 @Component({
   standalone: true,
   imports: [ ReactiveFormsModule,MatInputModule,MatFormFieldModule, MatIconModule, FormsModule ],
-  selector: 'app-add-income-dialog',
-  templateUrl: './add-income-dialog.component.html',
-  styleUrls: ['./add-income-dialog.component.css']
+  selector: 'app-add-expense-dialog',
+  templateUrl: './add-expense-dialog.component.html',
+  styleUrls: ['./add-expense-dialog.component.css']
 })
 export class AddExpenseDialogComponent implements OnInit {
   
 
   formData = {
-    user_id: null,
-    source: '',
+    user_id: null, 
+    category: '',
     amount: null,
     date: '',
     note: ''
   };
+  
 
   constructor(
     public dialogRef: MatDialogRef<AddExpenseDialogComponent>,
@@ -39,7 +40,6 @@ export class AddExpenseDialogComponent implements OnInit {
   save(): void {
     // Assuming formData is properly populated
     const formData = this.formData;
-    console.log("yo")
     console.log(formData);
   
     // Make sure user_id is populated in the formData
@@ -48,21 +48,20 @@ export class AddExpenseDialogComponent implements OnInit {
       return;
     }
   
-    // Make HTTP POST request to save the income
-    this.http.post(`http://localhost:3000/income/newEntry`, formData)
+    // Make HTTP POST request to save the expense
+    this.http.post(`http://localhost:3000/expense/newEntry`, formData)
       .subscribe({
         next: (response) => {
-          console.log('Income saved successfully:', response);
+          console.log('Expense saved successfully:', response);
           // Handle success response
         },
         error: (error) => {
-          console.error('Error saving income:', error);
+          console.error('Error saving Expense:', error);
           // Handle error saving income
         }
       });
   
-    // Set breakpoint at the end of the function
-    debugger;
+
   }
   
   

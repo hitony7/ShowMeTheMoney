@@ -3,6 +3,7 @@ import { UserloadService } from '../dashboard/userload.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AddIncomeDialogComponent } from './add-income-dialog-component/add-income-dialog.component';
+import { AddExpenseDialogComponent } from './add-expense-dialog-component/add-expense-dialog.component';
 
 import { flush } from '@angular/core/testing';
 import {MatButtonModule} from '@angular/material/button';
@@ -43,6 +44,10 @@ export class IncomeExpenseComponent implements OnInit {
   }
   
   addexpense(){
+    
+    const dialogRef = this.dialog.open(AddExpenseDialogComponent, {
+      width: '400px' // Adjust the width as needed
+    });
     
   }
 

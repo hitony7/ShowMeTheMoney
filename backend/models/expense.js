@@ -32,6 +32,9 @@ const Expense = sequelize.define('expense', {
     type: DataTypes.DATE,
     allowNull: false
   }
+}, {
+  timestamps: false // This will tell Sequelize not to include createdAt and updatedAt columns
 });
+
 
 module.exports = Expense;
