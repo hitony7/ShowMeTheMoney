@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { UserloadService } from '../dashboard/userload.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { AddIncomeDialogComponent } from './add-income-dialog-component/add-income-dialog.component';
 
 import { flush } from '@angular/core/testing';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-income-expense',
   standalone: true,
-  imports: [CommonModule , MatButtonModule, MatSidenavModule, RouterLink],
+  imports: [CommonModule , MatButtonModule, MatSidenavModule, RouterLink, ],
   templateUrl: './income-expense.component.html',
   styleUrl: './income-expense.component.css'
 })
@@ -18,7 +20,7 @@ export class IncomeExpenseComponent implements OnInit {
   showProfileContent: boolean = true;
   showFiller = false;
 
-  constructor(private userloadService: UserloadService) {}
+  constructor(private userloadService: UserloadService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.loadUserProfile();
@@ -33,6 +35,10 @@ export class IncomeExpenseComponent implements OnInit {
   }
 
   addincome(){
+
+    const dialogRef = this.dialog.open(AddIncomeDialogComponent, {
+      width: '400px' // Adjust the width as needed
+    });
     
   }
   
