@@ -1,33 +1,67 @@
 /* Add this CSS to your global styles or component styles */
 .example-container {
-    height: 100vh; /* Make the container height fill the entire viewport */
-    width: 100vw; /* Make the container width fill the entire viewport */
-  }
-  
+  height: 100vh;
+  /* Make the container height fill the entire viewport */
+  width: 100vw;
+  /* Make the container width fill the entire viewport */
+}
 
-  /* Add this CSS to your global styles or component styles */
+
 /* Add this CSS to your global styles or component styles */
 .header {
-    display: flex; /* Use flexbox layout */
-    justify-content: space-between; /* Distribute items evenly along the main axis */
-    align-items: center; /* Center the items vertically */
-  }
-  
-  .header h1 {
-    margin-right: auto; /* Push h1 to the left */
-    margin-right: 10px; /* Add 10px right margin to the h1 */
-    margin-left: 50px; 
-  }
-  
-  .header button {
-    margin-right: 50px; /* Add 10px right margin to the button */
-  }
+  display: flex;
+  /* Use flexbox layout */
+  justify-content: space-between;
+  /* Distribute items evenly along the main axis */
+  align-items: center;
+  /* Center the items vertically */
+}
+
+.header h1 {
+  margin-right: auto;
+  /* Push h1 to the left */
+  margin-right: 10px;
+  /* Add 10px right margin to the h1 */
+  margin-left: 50px;
+}
+
+.header button {
+  margin-right: 50px;
+  /* Add 10px right margin to the button */
+}
 
 
-  .example-sidenav button {
-    display: block;
-    width: 100%;
-  }
+.example-sidenav button {
+  display: block;
+  width: 100%;
+}
 
- 
-  
+/* Add this SCSS to your component styles */
+app-piegraph {
+  display: block;
+  /* Ensure it's a block-level element */
+  max-width: 450px;
+  /* Set a maximum width for the component */
+  margin: 0 auto;
+  /* Center the component horizontally */
+}
+
+.container {
+  display: flex;
+}
+
+.small-card-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.long-card-container {
+  flex: 2;
+}
+
+.long-card, .small-card {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}

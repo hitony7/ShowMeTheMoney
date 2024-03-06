@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TreemapComponent } from './treemap.component';
+import { LinegraphComponent } from './linegraph.component';
 
-describe('TreemapComponent', () => {
-  let component: TreemapComponent;
-  let fixture: ComponentFixture<TreemapComponent>;
+describe('LinegraphComponent', () => {
+  let component: LinegraphComponent;
+  let fixture: ComponentFixture<LinegraphComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TreemapComponent]
+      imports: [LinegraphComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(TreemapComponent);
+    fixture = TestBed.createComponent(LinegraphComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

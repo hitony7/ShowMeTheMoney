@@ -1,0 +1,40 @@
+<mat-card>
+    <mat-card-title>Recent Transactions</mat-card-title>
+    <mat-table [dataSource]="recentTransactions">
+      <!-- Date Column -->
+      <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+        <mat-cell *matCellDef="let transaction">{{ transaction.date }}</mat-cell>
+      </ng-container>
+  
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+        <mat-cell *matCellDef="let transaction" [ngClass]="{ 'expense': isExpense(transaction), 'income': !isExpense(transaction) }">
+          <ng-container *ngIf="transaction.source; else expense">
+            {{ transaction.source }}
+          </ng-container>
+          <ng-template #expense>
+            {{ transaction.category }}
+          </ng-template>
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Amount Column -->
+      <ng-container matColumnDef="amount">
+        <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
+        <mat-cell *matCellDef="let transaction" [ngClass]="{ 'expense': isExpense(transaction), 'income': !isExpense(transaction) }">
+          <ng-container *ngIf="isExpense(transaction)">
+            <span class="amount expense">{{ transaction.amount }}</span>
+          </ng-container>
+          <ng-container *ngIf="!isExpense(transaction)">
+            <span class="amount income">{{ transaction.amount }}</span>
+          </ng-container>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="['date', 'description', 'amount']"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ['date', 'description', 'amount'];"></mat-row>
+    </mat-table>
+  </mat-card>
+  

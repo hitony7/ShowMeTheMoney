@@ -3,13 +3,16 @@ import { UserloadService } from './userload.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PiegraphComponent } from './piegraph/piegraph.component';
+import { RecenttransComponent } from './recenttrans/recenttrans.component';
+import { LinegraphComponent } from './linegraph/linegraph.component';
 
 import { flush } from '@angular/core/testing';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
+
 @Component({
   standalone: true,
-  imports: [CommonModule , MatButtonModule, MatSidenavModule, RouterLink,  PiegraphComponent],
+  imports: [CommonModule , MatButtonModule, MatSidenavModule, RouterLink,  PiegraphComponent , RecenttransComponent, LinegraphComponent,],
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
