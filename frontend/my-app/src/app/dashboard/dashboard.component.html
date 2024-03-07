@@ -28,16 +28,17 @@
 
 
     <header class="header">
-      <h1>Welcome, {{ userProfile?.firstname }} {{ userProfile?.lastname }}</h1>
+      <h1>Welcome To Dashboard, {{ userProfile?.firstname }} {{ userProfile?.lastname }}</h1>
       <button mat-raised-button color="warn" (click)="logout()">Logout</button>
     </header>
     <div class="container">
       <div class="small-card-container">
         <app-piegraph></app-piegraph>
-        <app-linegraph></app-linegraph>
+      
       </div>
       <div class="long-card-container">
         <app-recenttrans></app-recenttrans>
+        <app-linegraph></app-linegraph>
       </div>
     </div>
   

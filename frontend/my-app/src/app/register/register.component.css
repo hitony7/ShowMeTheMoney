@@ -1,19 +1,25 @@
 /* Apply styles to the form */
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Apply styles to each mat-form-field */
-  mat-form-field {
-    width: 100%;
-    margin-bottom: 20px; /* Add spacing between form fields */
-  }
-  
-  /* Apply styles to the button */
-  button {
-    width: 100%;
-    margin-top: 20px; /* Add spacing between form fields and button */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 250px; /* Set a fixed width of 250px on the left side */
+  margin-right: 250px; /* Set a fixed width of 250px on the right side */
+}
+
+/* Apply styles to each mat-form-field */
+mat-form-field {
+  width: calc(100% - 500px); /* Calculate the width of the form field */
+  margin-bottom: 20px; /* Add spacing between form fields */
+}
+
+/* Apply styles to the button */
+button {
+  width: calc(100% - 1200px); /* Calculate the width of the button */
+  margin-top: 20px; /* Add spacing between form fields and button */
+}
+/* Add this CSS to your global styles or component styles */
+.title {
+  text-align: center; /* Center align the text */
+  margin: 20px 0; /* Add 20px top and bottom margin */
+}

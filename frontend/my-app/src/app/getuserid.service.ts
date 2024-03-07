@@ -12,7 +12,7 @@ export class GetuseridService {
   constructor(private http: HttpClient) { }
 
   getUserId(): Observable<any> {
-    // Get the JWT token from local storage
+    // Get the JWT token from local storage // JWT vs jwtTOKEN
     const token = localStorage.getItem('jwtToken');
     console.log('JWT token:', token); // Log the JWT token
   

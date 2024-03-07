@@ -41,10 +41,16 @@ app-piegraph {
   display: block;
   /* Ensure it's a block-level element */
   max-width: 450px;
-  /* Set a maximum width for the component */
-  margin: 0 auto;
-  /* Center the component horizontally */
+  margin-left: 50px;
 }
+
+ app-recenttrans,
+ app-linegraph{
+  margin: 10px;
+  max-width: 1200px;
+  display: block;
+}
+
 
 .container {
   display: flex;

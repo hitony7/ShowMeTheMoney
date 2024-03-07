@@ -32,6 +32,13 @@ export class SavingsGoalComponent implements OnInit {
   }
 
   logout(){
+
+       // Remove JWT token from local storage
+       localStorage.removeItem('jwtToken');
+    
+       // Redirect to home page
+       window.location.href = './';
+       //maybe add pop up for logout
     
   }
 
