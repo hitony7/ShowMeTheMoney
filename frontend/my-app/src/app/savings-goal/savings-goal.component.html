@@ -28,7 +28,7 @@
   
   
       <header class="header">
-        <h1>Welcome to Savings, {{ userProfile.firstname }} {{ userProfile.lastname }}</h1>
+        <h1>Welcome to Savings, {{ userProfile?.firstname }} {{ userProfile?.lastname }}</h1>
         <button mat-raised-button color="warn" (click)="logout()">Logout</button>
       </header>
   

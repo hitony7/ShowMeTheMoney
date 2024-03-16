@@ -1,8 +1,10 @@
 import { MatCardModule } from '@angular/material/card';
 import { Component, OnInit, ElementRef, AfterViewInit } from '@angular/core';
 import * as d3 from 'd3';
+import { GetuseridService } from '../../getuserid.service';
 
 import { DataService } from './data.service';
+
 
 @Component({
   selector: 'app-piegraph',
@@ -13,7 +15,8 @@ import { DataService } from './data.service';
 })
 
 export class PiegraphComponent implements OnInit, AfterViewInit {
-  constructor(private dataService: DataService) { }
+  userId: number | undefined;
+  constructor(private dataService: DataService , private GetuseridService: GetuseridService) { }
 
   ngOnInit(): void {
     console.log('PiegraphComponent initialized');
@@ -21,7 +24,22 @@ export class PiegraphComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     console.log('ngAfterViewInit triggered');
-    this.renderPieChart(8);
+
+    this.GetuseridService.extractUserId().subscribe({
+      next: (userId: number) => {
+        this.userId = userId;
+        console.log('Received user ID:', this.userId); // Log the received user ID
+        // Now that we have the userId, fetch recent transactions
+        if (this.userId !== undefined) {
+          this.renderPieChart(this.userId);
+        } else {
+          console.error('Failed to get user ID.');
+        }
+      },
+      error: (error) => {
+        console.error('Error extracting user ID:', error);
+      }
+    });
   }
 
   private renderPieChart(userId: number): void {

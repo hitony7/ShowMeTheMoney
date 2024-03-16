@@ -4,15 +4,17 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AddIncomeDialogComponent } from './add-income-dialog-component/add-income-dialog.component';
 import { AddExpenseDialogComponent } from './add-expense-dialog-component/add-expense-dialog.component';
+import { RecenttransComponent } from './alltransactions/recenttrans.component';
 
 import { flush } from '@angular/core/testing';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatDialog } from '@angular/material/dialog';
+import { GetuseridService } from '../getuserid.service';
 @Component({
   selector: 'app-income-expense',
   standalone: true,
-  imports: [CommonModule , MatButtonModule, MatSidenavModule, RouterLink, ],
+  imports: [CommonModule , MatButtonModule, MatSidenavModule, RouterLink,RecenttransComponent ],
   templateUrl: './income-expense.component.html',
   styleUrl: './income-expense.component.css'
 })
@@ -21,7 +23,7 @@ export class IncomeExpenseComponent implements OnInit {
   showProfileContent: boolean = true;
   showFiller = false;
 
-  constructor(private userloadService: UserloadService, public dialog: MatDialog) {}
+  constructor(private userloadService: UserloadService, public dialog: MatDialog, private getuseridService: GetuseridService) {}
 
   ngOnInit(): void {
     this.loadUserProfile();

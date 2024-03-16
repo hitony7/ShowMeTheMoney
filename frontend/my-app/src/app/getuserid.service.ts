@@ -1,7 +1,7 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators'; // Import map operator
 
 @Injectable({
   providedIn: 'root'
@@ -12,17 +12,30 @@ export class GetuseridService {
   constructor(private http: HttpClient) { }
 
   getUserId(): Observable<any> {
-    // Get the JWT token from local storage // JWT vs jwtTOKEN
     const token = localStorage.getItem('jwtToken');
-    console.log('JWT token:', token); // Log the JWT token
-  
-    // Create headers with Authorization header containing the JWT token
+    console.log('JWT token:', token);
+
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-  
-    // Make HTTP GET request with headers
+
     return this.http.get<any>(this.userProfileUrl, { headers });
   }
+
+  // Modified method to extract user ID as a number
+  extractUserId(): Observable<number> {
+    return this.getUserId().pipe(
+      //tap(response => console.log('Received user ID response:', response)), // Log the received response
+      map(response => {
+        const userId = typeof response.user_id === 'number' ? response.user_id : parseInt(response.user_id, 10); // Ensure the user_id is parsed as a number
+       // console.log('Converted user ID:', userId); // Log the converted user ID
+        return userId;
+      })
+    );
+  }
   
+  
+
+
+
 }

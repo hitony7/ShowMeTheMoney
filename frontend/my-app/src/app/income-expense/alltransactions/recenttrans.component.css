@@ -1,0 +1,18 @@
+.expense {
+    color: red;
+    text-decoration: underline red;
+  }
+  
+  .income {
+    color: green;
+    text-decoration: underline green;
+  }
+  
+  .amount {
+    white-space: nowrap; /* Prevent line breaks within amount */
+  }
+  
+  .mat-card-title {
+    margin-left: 20px;
+  }
+  

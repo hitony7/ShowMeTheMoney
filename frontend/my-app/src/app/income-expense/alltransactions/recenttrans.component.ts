@@ -7,7 +7,7 @@ import { GetuseridService } from '../../getuserid.service';
 
 
 @Component({
-  selector: 'app-recenttrans',
+  selector: 'app-transactions',
   standalone: true,
   imports: [CommonModule, MatCardModule , MatTableModule],
   templateUrl: './recenttrans.component.html',
@@ -18,16 +18,18 @@ export class RecenttransComponent implements OnInit {
   recentTransactions: any[] = [];
   userId: number | undefined;
 
-  constructor(private http: HttpClient, private GetuseridService:  GetuseridService) { }
+  constructor(private http: HttpClient, private GetuseridService:GetuseridService) { }
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
+    const userId = this.GetuseridService.extractUserId(); // Replace with the actual user ID or get it dynamically
+    
     this.GetuseridService.extractUserId().subscribe({
       next: (userId: number) => {
         this.userId = userId;
         console.log('Received user ID:', this.userId); // Log the received user ID
         // Now that we have the userId, fetch recent transactions
         if (this.userId !== undefined) {
-          this.fetchRecentTransactions(this.userId);
+          this.fetchTransactions(this.userId);
         } else {
           console.error('Failed to get user ID.');
         }
@@ -37,24 +39,28 @@ export class RecenttransComponent implements OnInit {
       }
     });
   }
-  
-  fetchRecentTransactions(userId: number): void {
-    console.log('Fetching recent transactions for user ID:', userId); // Log the user ID used for fetching transactions
-    this.http.get<any>(`http://localhost:3000/income/recenttransaction/${userId}`).subscribe(
-      (data) => {
-        if (data && data.success) {
-          this.recentTransactions = data.data;
-        } else {
-          console.error('Failed to fetch recent transactions:', data.error);
-        }
-      },
-      (error) => {
-        console.error('Failed to fetch recent transactions:', error);
-      }
-    );
-  }
 
-  isExpense(transaction: any): boolean {
-    return transaction.category !== undefined;
-  }
+ fetchTransactions(userId: any): void {
+  this.http.get<any>(`http://localhost:3000/income/alltransactions/${userId}`).subscribe({
+    next: (data) => {
+      if (data && data.success) {
+        this.recentTransactions = data.data;
+      } else {
+        console.error('Failed to fetch recent transactions:', data.error);
+      }
+    },
+    error: (error) => {
+      console.error('Failed to fetch recent transactions:', error);
+    }
+  });
 }
+isExpense(transaction: any): boolean {
+  return transaction.category !== undefined;
+}
+
+    
+  }
+    
+
+   
+

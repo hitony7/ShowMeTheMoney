@@ -62,7 +62,7 @@ export class AddIncomeDialogComponent implements OnInit {
       });
   
     // Set breakpoint at the end of the function
-    debugger;
+
   }
   
   
